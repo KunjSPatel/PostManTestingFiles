@@ -1,9 +1,9 @@
 {
- "scripts": {
-
-   "test":
-   "newman run collections/ContactManagement.postman_collection.json -e environments/qa.environment.json"
-
- }
-
+    "scripts": {
+        "test": "bash scripts/run-api-tests.sh"
+    },
+    "devDependencies": {
+        "newman": "^6.x",
+        "newman-reporter-htmlextra": "^1.23.1"
+    }
 }
