@@ -45,11 +45,10 @@ jobs:
 
       run: |
 
+        echo "Listing downloaded files..."
+        ls -R report
+        
         mkdir public
-
-        cp report/api-test-report.html public/index.html
-
-
 
     - name: Upload Pages Artifact
 
