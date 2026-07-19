@@ -31,7 +31,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"email\": \"mysoulrises@gmail.com\",\r\n    \"password\": \"hahatest123\"\r\n}",
+              "raw": "{\r\n    \"email\": \"example@gmail.com\",\r\n    \"password\": \"testingPass\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -248,6 +248,62 @@
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"LastName\",\r\n    \"birthdate\": \"1970-01-01\",\r\n    \"email\": \"jdoe@lehsun.com\",\r\n    \"phone\": \"8005555555\",\r\n    \"street1\": \"1 Main St.\",\r\n    \"street2\": \"Apartment A\",\r\n    \"city\": \"Anytown\",\r\n    \"stateProvince\": \"ON\",\r\n    \"postalCode\": \"12345\",\r\n    \"country\": \"USA\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/{{contactId}}",
+              "protocol": "https",
+              "host": [
+                "thinking-tester-contact-list",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "contacts",
+                "{{contactId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Contact Just Email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Country changed to Canada\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.country).to.eql(\"Canada\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"country\": \"Canada\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
