@@ -1,0 +1,9 @@
+{
+ "scripts": {
+
+   "test":
+   "newman run collections/ContactManagement.postman_collection.json -e environments/qa.environment.json"
+
+ }
+
+}
