@@ -46,9 +46,11 @@ jobs:
           cp reports/api-test-report.html public/index.html
 
       # Step 6
-      - name: Upload Pages Artifact
+      - name: Upload Test Report Artifact
 
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
 
         with:
+
+          name: Newman-API-Test-Report
           path: public
