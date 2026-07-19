@@ -1,0 +1,54 @@
+name: API Automation Tests
+
+
+# When should pipeline run?
+on:
+
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+
+
+jobs:
+
+
+  api-test:
+
+    name: Execute API Tests
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+
+
+    # Step 1
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+
+
+    # Step 2
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+
+      with:
+        node-version: 20
+
+
+
+    # Step 3
+    - name: Install Dependencies
+      run: npm install
+
+
+
+    # Step 4
+    - name: Run Newman Tests
+      run: |
+        npm run test
